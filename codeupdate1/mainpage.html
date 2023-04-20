@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Movie Picker</title>
+    <style>
+    img {
+        width: 100%;
+        margin: auto;
+    }
+    
+    body {
+        background-color:#000000/*#28282B #060d17*/;
+        /*background-image: url(background2.avif);
+        background-repeat: no-repeat;
+        background-size: auto;*/
+    } 
+
+    .usttaraf{
+        margin:auto;
+        border: 3px solid green;
+        width: 600px;
+        height: 550px;
+    }
+
+
+    .logo{
+        margin: auto;/*ortalıyo auto yapınca divi*/
+        margin-top: 1em;
+        width: 400px;/*bu yüzde olunca sayfa küçülünce sayfa boyutuna göre ayarlıyo divi,px yaparsan boyut sabit kalır*/
+        height: 145px;
+        border: 3px solid green;
+        
+    }
+
+    .slogan{
+        margin: auto;
+        margin-top: 15px;
+        width: 350px;
+        height: 110px;
+        border: 3px solid green;
+        text-align: center;
+    }
+
+    .category{
+        margin: auto;
+        margin-top: 20px;
+        width: 280px;
+        height: 50px;
+        border: 3px solid green;
+        
+    }
+    .shuffle{
+        margin: auto;
+        margin-top: 20px;
+        width: 125px;
+        height: 50px;
+        border: 3px solid green;
+        
+    }
+
+    .categories{
+        margin: auto;
+        margin-top: 100px;
+        width: 750px;
+        height: 100px;
+        border: 3px solid green;
+        text-align: center;
+        line-height: 60px;
+        
+    }
+    .actioncategory{
+        margin: auto;
+        margin-top: 40px;
+        width: 1100px;
+        height: 300px;
+        border: 3px solid green;
+    }
+    .action{
+        margin-left: 5px;
+        margin-top: 5px;
+        width: 200px;
+        height: 40px;
+        border: 3px solid green;
+        line-height: 10px;
+    }
+    .actionmovies{
+        border: 3px solid green;
+        margin-left: 5px;
+        margin-top: 5px;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        width: 98%;
+        height: 210px; 
+    }
+    .kaydirma{
+        border: 3px solid green;
+        margin-left: 5px;
+        margin-top: 5px;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        width: 98%;
+        height: 15px;
+    }
+    .adventurecategory{
+        margin: auto;
+        margin-top: 40px;
+        width: 1100px;
+        height: 300px;
+        border: 3px solid green;
+    }
+    .adventure{
+        margin-left: 5px;
+        margin-top: 5px;
+        width: 200px;
+        height: 40px;
+        border: 3px solid green;
+        line-height: 10px;
+    }
+    .adventuremovies{
+        border: 3px solid green;
+        margin-left: 5px;
+        margin-top: 5px;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        width: 98%;
+        height: 210px; 
+    }
+    .animationcategory{
+        margin: auto;
+        margin-top: 40px;
+        width: 1100px;
+        height: 300px;
+        border: 3px solid green;
+    }
+    .animation{
+        margin-left: 5px;
+        margin-top: 5px;
+        width: 200px;
+        height: 40px;
+        border: 3px solid green;
+        line-height: 1px;
+    }
+    .animationmovies{
+        border: 3px solid green;
+        margin-left: 5px;
+        margin-top: 5px;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        width: 98%;
+        height: 210px; 
+    }
+    
+    h1{
+        color: white;
+        font-size: 40px;
+        font-family: myFirstFont;
+    }
+
+    h5{
+        color:#F55725;
+        font-size: 22px;
+        font-family: myFirstFont;
+        position:relative;
+        top:-20px;
+    }
+
+    h2,h3,h4{
+        color:white;
+        font-size: 22px;
+        font-family: myFirstFont;
+        position:relative;
+        top:-5px;
+    }
+
+    @font-face {
+        font-family: myFirstFont;
+        src: url(SansationLight.ttf);
+    }
+
+    </style>
+
+</head>
+<body>
+    <div class="usttaraf">
+        <div class="logo">
+            <img src="logo öneri3.jpg" alt="Logo">
+        </div>
+        <div class="slogan">
+            <h5>DON'T KNOW WHAT TO WATCH ?
+                 JUST CHOOSE A CATEGORY
+                  WE'LL PICK THE MOVIE.
+            </h5>
+        </div>
+        <div class="category">
+
+         </div>
+        <div class="shuffle">
+             <a href="shuffle page.html" target="_self">SHUFFLE</a>
+        </div>
+    </div>
+    <div class="categories">
+        <h1>CATEGORIES</h1>
+    </div>
+
+<div class="actioncategory">
+
+    <div class="action">
+        <h2>ACTION</h2>
+    </div>
+
+    <div class="actionmovies">
+    </div>
+
+
+    <div class="kaydirma">
+
+    </div>
+</div>
+
+<div class="adventurecategory">
+
+    <div class="adventure">
+        <h3>ADVENTURE</h3>
+    </div>
+
+    <div class="adventuremovies">
+    </div>
+
+
+    <div class="kaydirma">
+
+    </div>
+</div>
+
+<div class="animationcategory">
+
+    <div class="animation">
+        <h4>ANIMATION</h4>
+    </div>
+
+    <div class="animationmovies">
+    </div>
+
+
+    <div class="kaydirma">
+
+    </div>
+</div>
+    
+
+
+ 
+</body>
+</html>
