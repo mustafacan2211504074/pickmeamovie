@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Movie Picker</title>
+    <style>
+    img {
+        width: 100%;
+        margin: auto;
+    }
+    
+    body {
+        background-color:#131314/*#28282B #060d17*/;
+        /*background-image: url(background2.avif);
+        background-repeat: no-repeat;
+        background-size: auto;*/
+    } 
+
+    .usttaraf{
+        margin:auto;
+        border: 3px solid green;
+        width: 600px;
+        height: 550px;
+    }
+
+
+    .logo{
+        margin: auto;/*ortalıyo auto yapınca divi*/
+        margin-top: 1em;
+        width: 400px;/*bu yüzde olunca sayfa küçülünce sayfa boyutuna göre ayarlıyo divi,px yaparsan boyut sabit kalır*/
+        height: 145px;
+        border: 3px solid green;
+        
+    }
+
+    .slogan{
+        margin: auto;
+        margin-top: 15px;
+        width: 350px;
+        height: 110px;
+        border: 3px solid green;
+        text-align: center;
+    }
+
+    .category{
+        margin: auto;
+        margin-top: 20px;
+        width: 250px;
+        height: 30px;
+        border: 3px solid green;
+        
+    }
+    .shuffle{
+        margin: auto;
+        margin-top: 20px;
+        width: 125px;
+        height: 40px;
+        border: 3px solid green;
+    }
+    
+
+    .categories{
+        margin: auto;
+        margin-top: 60px;
+        width: 750px;
+        height: 100px;
+        border: 3px solid green;
+        text-align: center;
+        line-height: 60px;
+        
+    }
+    .actioncategory{
+        margin: auto;
+        margin-top: 20px;
+        width: 1100px;
+        height: 330px;
+        border: 3px solid green;
+    }
+    .action{
+        margin-left: 5px;
+        margin-top: 5px;
+        width: 200px;
+        height: 40px;
+        border: 3px solid green;
+        line-height: 10px;
+    }
+    .actionmovies{
+        border: 3px solid green;
+        margin-left: 5px;
+        margin-top: 5px;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        width: 1080px;
+        height: 260px; 
+        overflow-x: scroll;
+        white-space: nowrap;
+    }
+    .actionmovies::-webkit-scrollbar {
+     height: 10px;
+    }
+
+    .actionmovies::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 0;
+    }
+
+    .actionmovies::-webkit-scrollbar-thumb {   
+    height: 10px;
+    background-color: #FFFF;
+    border-radius: 3px;
+    }
+
+    .actionmovies::-webkit-scrollbar-thumb:hover {
+     background-color:#d5ac68;
+     border-radius: 3px;
+    }
+
+    .actionmovies::-webkit-scrollbar:vertical {
+    display: none;
+    }
+    
+    .comedycategory{
+        margin: auto;
+        margin-top: 40px;
+        width: 1100px;
+        height: 330px;
+        border: 3px solid green;
+    }
+    .comedy{
+        margin-left: 5px;
+        margin-top: 5px;
+        width: 200px;
+        height: 40px;
+        border: 3px solid green;
+        line-height: 10px;
+    }
+    .comedymovies{
+        border: 3px solid green;
+        margin-left: 5px;
+        margin-top: 5px;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        width: 1080px;
+        height: 260px; 
+        overflow: auto;
+        white-space: nowrap;
+    }
+    .comedymovies::-webkit-scrollbar {
+     height: 10px;
+    }
+
+    .comedymovies::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 0;
+    }
+
+    .comedymovies::-webkit-scrollbar-thumb {   
+    height: 10px;
+    background-color: #FFFF;
+    border-radius: 3px;
+    }
+
+    .comedymovies::-webkit-scrollbar-thumb:hover {
+     background-color:#d5ac68;
+     border-radius: 3px;
+    }
+
+    .comedymovies::-webkit-scrollbar:vertical {
+    display: none;
+    }
+    .dramacategory{
+        margin: auto;
+        margin-top: 40px;
+        width: 1100px;
+        height: 330px;
+        border: 3px solid green;
+    }
+    .drama{
+        margin-left: 5px;
+        margin-top: 5px;
+        width: 200px;
+        height: 40px;
+        border: 3px solid green;
+        line-height: 1px;
+    }
+    .dramamovies{
+        border: 3px solid green;
+        margin-left: 5px;
+        margin-top: 5px;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        width: 1080px;
+        height: 260px; 
+        overflow: auto;
+        white-space: nowrap; 
+    }
+    .dramamovies::-webkit-scrollbar {
+     height: 10px;
+    }
+
+    .dramamovies::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 0;
+    }
+
+    .dramamovies::-webkit-scrollbar-thumb {   
+    height: 10px;
+    background-color: #FFFF;
+    border-radius: 3px;
+    }
+
+    .dramamovies::-webkit-scrollbar-thumb:hover {
+     background-color:#d5ac68;
+     border-radius: 3px;
+    }
+
+    .dramamovies::-webkit-scrollbar:vertical {
+    display: none;
+    }
+    .fantasycategory{
+        margin: auto;
+        margin-top: 40px;
+        width: 1100px;
+        height: 330px;
+        border: 3px solid green;
+    }
+    .fantasy{
+        margin-left: 5px;
+        margin-top: 5px;
+        width: 200px;
+        height: 40px;
+        border: 3px solid green;
+        line-height: 1px;
+    }
+    .fantasymovies{
+        border: 3px solid green;
+        margin-left: 5px;
+        margin-top: 5px;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        width: 1080px;
+        height: 260px; 
+        overflow: auto;
+        white-space: nowrap; 
+    }
+    .fantasymovies::-webkit-scrollbar {
+     height: 10px;
+    }
+
+    .fantasymovies::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 0;
+    }
+
+    .fantasymovies::-webkit-scrollbar-thumb {   
+    height: 10px;
+    background-color: #FFFF;
+    border-radius: 3px;
+    }
+
+    .fantasymovies::-webkit-scrollbar-thumb:hover {
+     background-color:#d5ac68;
+     border-radius: 3px;
+    }
+
+    .fantasymovies::-webkit-scrollbar:vertical {
+    display: none;
+    }
+    .horrorcategory{
+        margin: auto;
+        margin-top: 40px;
+        width: 1100px;
+        height: 330px;
+        border: 3px solid green;
+    }
+    .horror{
+        margin-left: 5px;
+        margin-top: 5px;
+        width: 200px;
+        height: 40px;
+        border: 3px solid green;
+        line-height: 1px;
+    }
+    .horrormovies{
+        border: 3px solid green;
+        margin-left: 5px;
+        margin-top: 5px;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        width: 1080px;
+        height: 260px; 
+        overflow: auto;
+        white-space: nowrap; 
+    }
+    .horrormovies::-webkit-scrollbar {
+     height: 10px;
+    }
+
+    .horrormovies::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 0;
+    }
+
+    .horrormovies::-webkit-scrollbar-thumb {   
+    height: 10px;
+    background-color: #FFFF;
+    border-radius: 3px;
+    }
+
+    .horrormovies::-webkit-scrollbar-thumb:hover {
+     background-color:#d5ac68;
+     border-radius: 3px;
+    }
+
+    .horrormovies::-webkit-scrollbar:vertical {
+    display: none;
+    }
+    .mysterycategory{
+        margin: auto;
+        margin-top: 40px;
+        width: 1100px;
+        height: 330px;
+        border: 3px solid green;
+    }
+    .mystery{
+        margin-left: 5px;
+        margin-top: 5px;
+        width: 200px;
+        height: 40px;
+        border: 3px solid green;
+        line-height: 1px;
+    }
+    .mysterymovies{
+        border: 3px solid green;
+        margin-left: 5px;
+        margin-top: 5px;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        width: 1080px;
+        height: 260px; 
+        overflow: auto;
+        white-space: nowrap; 
+    }
+    .mysterymovies::-webkit-scrollbar {
+     height: 10px;
+    }
+
+    .mysterymovies::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 0;
+    }
+
+    .mysterymovies::-webkit-scrollbar-thumb {   
+    height: 10px;
+    background-color: #FFFF;
+    border-radius: 3px;
+    }
+
+    .mysterymovies::-webkit-scrollbar-thumb:hover {
+     background-color:#d5ac68;
+     border-radius: 3px;
+    }
+
+    .mysterymovies::-webkit-scrollbar:vertical {
+    display: none;
+    }
+    .romancecategory{
+        margin: auto;
+        margin-top: 40px;
+        width: 1100px;
+        height: 330px;
+        border: 3px solid green;
+    }
+    .romance{
+        margin-left: 5px;
+        margin-top: 5px;
+        width: 200px;
+        height: 40px;
+        border: 3px solid green;
+        line-height: 1px;
+    }
+    .romancemovies{
+        border: 3px solid green;
+        margin-left: 5px;
+        margin-top: 5px;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        width: 1080px;
+        height: 260px; 
+        overflow: auto;
+        white-space: nowrap; 
+    }
+    .romancemovies::-webkit-scrollbar {
+     height: 10px;
+    }
+
+    .romancemovies::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 0;
+    }
+
+    .romancemovies::-webkit-scrollbar-thumb {   
+    height: 10px;
+    background-color: #FFFF;
+    border-radius: 3px;
+    }
+
+    .romancemovies::-webkit-scrollbar-thumb:hover {
+     background-color:#d5ac68;
+     border-radius: 3px;
+    }
+
+    .romancemovies::-webkit-scrollbar:vertical {
+    display: none;
+    }
+    .thrillercategory{
+        margin: auto;
+        margin-top: 40px;
+        width: 1100px;
+        height: 330px;
+        border: 3px solid green;
+    }
+    .thriller{
+        margin-left: 5px;
+        margin-top: 5px;
+        width: 200px;
+        height: 40px;
+        border: 3px solid green;
+        line-height: 1px;
+    }
+    .thrillermovies{
+        border: 3px solid green;
+        margin-left: 5px;
+        margin-top: 5px;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        width: 1080px;
+        height: 260px; 
+        overflow: auto;
+        white-space: nowrap; 
+    }
+    .thrillermovies::-webkit-scrollbar {
+     height: 10px;
+    }
+
+    .thrillermovies::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 0;
+    }
+
+    .thrillermovies::-webkit-scrollbar-thumb {   
+    height: 10px;
+    background-color: #FFFF;
+    border-radius: 3px;
+    }
+
+    .thrillermovies::-webkit-scrollbar-thumb:hover {
+     background-color:#d5ac68;
+     border-radius: 3px;
+    }
+
+    .thrillermovies::-webkit-scrollbar:vertical {
+    display: none;
+    }
+    .westerncategory{
+        margin: auto;
+        margin-top: 40px;
+        width: 1100px;
+        height: 330px;
+        border: 3px solid green;
+    }
+    .western{
+        margin-left: 5px;
+        margin-top: 5px;
+        width: 200px;
+        height: 40px;
+        border: 3px solid green;
+        line-height: 1px;
+    }
+    .westernmovies{
+        border: 3px solid green;
+        margin-left: 5px;
+        margin-top: 5px;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        width: 1080px;
+        height: 260px; 
+        overflow: auto;
+        white-space: nowrap; 
+    }
+    .westernmovies::-webkit-scrollbar {
+     height: 10px;
+    }
+
+    .westernmovies::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 0;
+    }
+
+    .westernmovies::-webkit-scrollbar-thumb {   
+    height: 10px;
+    background-color: #FFFF;
+    border-radius: 3px;
+    }
+
+    .westernmovies::-webkit-scrollbar-thumb:hover {
+     background-color:#d5ac68;
+     border-radius: 3px;
+    }
+
+    .westernmovies::-webkit-scrollbar:vertical {
+    display: none;
+    }
+
+    h1{
+        color: white;
+        font-size: 40px;
+        font-family: myFirstFont;
+    }
+
+    h5{
+        color:#F55725;
+        font-size: 22px;
+        font-family: myFirstFont;
+        position:relative;
+        top:-20px;
+    }
+
+    h2{
+        color:#b79683;;
+        font-size: 22px;
+        font-family: myFirstFont;
+        position:relative;
+        top:-5px;
+    }
+
+    @font-face {
+        font-family: myFirstFont;
+        src: url(SansationLight.ttf);
+    }
+    @font-face {
+        font-family: myFirstFont2;
+        src: url(noto-sans.bold.ttf);
+    }
+
+
+    select{
+        width: 100%;
+        height: 100%;
+        font-family: myFirstFont2;
+        font-size: 15px;
+    }
+
+    .shufflebutton{
+        width: 100%;
+        height: 100%;
+        font-size: 1.2em;
+        font-family: myFirstFont;
+        background-color: #5CDB95;
+        color:white;
+    }
+
+    .movie{
+        display: inline-block;
+        width: 150px;
+        max-width: 150px;
+        height: 215px;
+        max-height: 215px;
+        margin-left: 5px;
+        margin-top: 0px;
+        border: 3px solid green;
+        background-color: #5CDB95;
+        padding: 5px;
+    }
+    .movie1{
+        display: inline-block;
+        width: 150px;
+        max-width: 150px;
+        height: 215px;
+        max-height: 215px;
+        margin-left: 5px;
+        margin-top: 0px;
+        border: 3px solid green;
+        background-color: #F55725;
+        padding: 5px;
+    }
+
+
+    </style>
+    
+
+</head>
+<body>
+    <div class="usttaraf">
+        <div class="logo">
+            <img src="logo öneri3png.png" alt="Logo">
+        </div>
+        <div class="slogan">
+            <h5>DON'T KNOW WHAT TO WATCH ?
+                 JUST CHOOSE A CATEGORY
+                  WE'LL PICK THE MOVIE.
+            </h5>
+        </div>
+        <div class="category">
+            <select>
+                <option value="0">Select category:</option>
+                <option value="1">Action</option>
+                <option value="2">Comedy</option>
+                <option value="3">Drama</option>
+                <option value="4">Fantasy</option>
+                <option value="5">Horror</option>
+                <option value="6">Mystery</option>
+                <option value="7">Romance</option>
+                <option value="8">Thriller</option>
+                <option value="9">Western</option>
+              </select>
+         </div>
+        <div class="shuffle">
+            <a href="shuffle page.html" target="_self">
+                <button class="shufflebutton">SHUFFLE</button></a>
+        </div>
+    </div>
+    <div class="categories">
+        <h1>CATEGORIES</h1>
+    </div>
+
+<div class="actioncategory">
+
+    <div class="action">
+        <h2>ACTION</h2>
+    </div>
+
+    <div class="actionmovies">
+        <div class="movie">
+            <img src="madmaxfuryroad.jpg">
+        </div>
+        <div class="movie1">
+            <img src="thedarkknight.jpg">
+        </div>
+        <div class="movie">
+            <img src="johnwick.jpg">
+        </div>
+        <div class="movie1">
+            
+        </div>
+        <div class="movie">
+
+        </div>
+        <div class="movie1">
+        </div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+    </div>
+</div>
+
+<div class="comedycategory">
+
+    <div class="comedy">
+        <h2>COMEDY</h2>
+    </div>
+
+    <div class="comedymovies">
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+    </div>
+</div>
+
+<div class="dramacategory">
+
+    <div class="drama">
+        <h2>DRAMA</h2>
+    </div>
+
+    <div class="dramamovies">
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+    </div>
+</div>
+<div class="fantasycategory">
+
+    <div class="fantasy">
+        <h2>FANTASY</h2>
+    </div>
+
+    <div class="fantasymovies">
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+    </div>
+</div>
+<div class="horrorcategory">
+
+    <div class="horror">
+        <h2>HORROR</h2>
+    </div>
+
+    <div class="horrormovies">
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+    </div>
+</div>
+<div class="mysterycategory">
+
+    <div class="mystery">
+        <h2>MYSTERY</h2>
+    </div>
+
+    <div class="mysterymovies">
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+    </div>
+</div>
+<div class="romancecategory">
+
+    <div class="romance">
+        <h2>ROMANCE</h2>
+    </div>
+
+    <div class="romancemovies">
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+    </div>
+</div>
+<div class="thrillercategory">
+
+    <div class="thriller">
+        <h2>THRILLER</h2>
+    </div>
+
+    <div class="thrillermovies">
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+    </div>
+</div>
+<div class="westerncategory">
+
+    <div class="western">
+        <h2>WESTERN</h2>
+    </div>
+
+    <div class="westernmovies">
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+        <div class="movie"></div>
+        <div class="movie1"></div>
+    </div>
+</div>
+
+    
+
+
+ 
+</body>
+</html>
