@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Movie Picker</title>
+    <link rel="icon" href="logoideas/headlogo4png.png" type="image/icon type">
+    <style>
+        body{
+            background-color: #131314;
+        }
+        .movieposter{
+            margin: auto;
+            margin-top: 100px;
+            width: 1010px;
+            height: 770px;
+            padding-top: 35px;
+            padding-left: 2px;
+            margin-left: 15px;
+            position: absolute;
+            top: 37%;
+            left: 30%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(90deg,#181818 10%,hsla(0,0%,9%,.98) 20%,hsla(0,0%,9%,.97) 25%,hsla(0,0%,9%,.95) 35%,hsla(0,0%,9%,.94) 40%,hsla(0,0%,9%,.92) 45%,hsla(0,0%,9%,.9) 50%,hsla(0,0%,9%,.87) 55%,hsla(0,0%,9%,.82) 60%,hsla(0,0%,9%,.75) 65%,hsla(0,0%,9%,.63) 70%,hsla(0,0%,9%,.45) 75%,hsla(0,0%,9%,.27) 80%,hsla(0,0%,9%,.15) 85%,hsla(0,0%,9%,.08) 90%,hsla(0,0%,9%,.03) 95%,hsla(0,0%,9%,0));
+        }
+
+        .info{
+            width: 500px;
+            height: 670px;
+            float: left;
+            margin-left: 100px;
+            margin-top: 75px;
+        }    
+        .navbar{
+            width: 100%;
+            display: flex;
+            justify-content: start;
+            position: fixed;
+            top: 0;
+            background-color: #131314;
+            z-index:2;
+            height: 50px;
+        }
+        
+        .moviename{
+            margin: auto;
+            margin-left: 5px;
+            width: 65%;
+            height: 250px;  
+        }
+        .yearetc{
+            margin: auto;
+            width: 100%;
+            height: 25px;
+            
+        }
+        .topic{
+            margin: auto;
+            height: 45px;
+            width: 100%;
+            margin-left: 5px;
+           
+        }
+        .trailer{
+            height: 40px;
+            margin: auto;
+            width: 100%;
+            float: left;
+            color: rgb(136, 134, 134);
+            font-weight: 300;
+            text-align: left;
+            white-space: pre;
+            padding-left: 5px;
+            font-family: newfont;
+            margin-top: 20px;
+        }
+        .name{
+            width: 100%;
+            margin-top: 110px;
+            margin-left: -5px;
+        }
+
+        @font-face {
+        font-family: newfont;
+        src: url(fonts/Ubuntu-Regular.ttf);
+        }
+
+        p{
+            color: white;
+            font-size: 17px;
+            line-height: 25px;
+            font-family: newfont;
+            font-weight: 500;
+        }
+
+        .background {
+            width: 100%;
+            height: 800px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 100%;
+            position: relative;
+            display: flex;
+            margin-top: 50px;
+            margin-left: 0px;
+        }
+
+        .arka{
+            max-width: 100%;
+            max-height: 100%;
+            margin-left: 215px;
+            -webkit-mask-image: linear-gradient(black 80%, transparent);
+            mask-image: linear-gradient(black 80%, transparent);  
+        }
+
+        .logo{
+            width: 100%;
+            height: 100%;
+        }
+
+        .movieinfo{
+            margin: auto;
+            margin-top: 7px;
+            width: 60%;
+            height: 100%;
+            float: left;
+            color: rgb(136, 134, 134);
+            font-weight: 300;
+            text-align: left;
+            white-space: pre;
+            padding-left: 5px;
+            font-family: newfont;
+        }
+        .imdb{
+            width: 33%;
+            height: 25px;
+            float: left;
+            color: rgb(136, 134, 134);
+            justify-content: left;
+            margin-top: 7px;
+        }
+        .imdblogo{
+            width: 40px;
+            height: 18px;
+            float: left;
+            margin-left: -55px;
+            
+        }
+        .puan{
+            float: left;
+            height: 20px;
+            font-family: newfont;
+            font-weight: 300;
+            margin-left: -15px;
+        }
+        .yellow{
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+        .trailer a{
+            cursor: pointer;
+            color:rgb(136, 134, 134);
+        }
+        .trailer a:link { text-decoration: none; }
+        .trailer a:visited { text-decoration: none; }
+        .trailer a:hover { text-decoration: none; }
+        .trailer a:active { text-decoration: none; }
+
+        .others{
+            height: 50px;
+            width: 350px;
+            margin-left: 105px;
+            margin-top: 150px;
+        }
+        .others p{
+            font-family: newfont;
+            font-size: 30px;
+            margin: auto;
+            padding-top: 22px;
+            margin-left: 10px;
+        }
+        .othermovies{
+            margin: auto;
+            flex-wrap: nowrap;
+            height: 650px;
+            width: auto;
+            margin-left: 105px;
+            margin-top: 2px;
+            margin-right: 105px;
+        }
+        .movie1{
+            width: 24%;
+            height: 33%;
+            float: left;
+            background-color: #5CDB95;
+            border-radius: 5px;
+            margin-bottom: 8px;
+        }
+        .movie2{
+            width: 24%;
+            height: 33%;
+            margin-left: 8px;
+            margin-bottom: 8px;
+            float: left;
+            background-color: #5CDB95;
+            border-radius: 5px;
+        }
+        .movie3{
+            width: 24%;
+            height: 33%;
+            margin-left: 8px;
+            float: left;
+            background-color: #5CDB95;
+            margin-bottom: 8px;
+            border-radius: 5px;
+        }
+        .movie4{
+            width: 24%;
+            height: 33%;
+            margin-left: 8px;
+            float: left;
+            background-color: #5CDB95;
+            margin-bottom: 8px;
+            border-radius: 5px;
+        }
+        .movie5{
+            width: 24%;
+            height: 33%;
+            float: left;
+            background-color: #5CDB95;
+            margin-bottom: 8px;
+            border-radius: 5px;
+        }
+        .movie6{
+            width: 24%;
+            height: 33%;
+            margin-left: 8px;
+            float: left;
+            background-color: #5CDB95;
+            margin-bottom: 8px;
+            border-radius: 5px;
+        }
+        .movie7{
+            width: 24%;
+            height: 33%;
+            margin-left: 8px;
+            float: left;
+            background-color: #5CDB95;
+            margin-bottom: 8px;
+            border-radius: 5px;
+        }
+        .movie8{
+            width: 24%;
+            height: 33%;
+            margin-left: 8px;
+            float: left;
+            background-color: #5CDB95;
+            margin-bottom: 8px;
+            border-radius: 5px;
+        }
+        .movie9{
+            width: 24%;
+            height: 33%;
+            float: left;
+            background-color: #5CDB95;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+        .movie10{
+            width: 24%;
+            height: 33%;
+            margin-left: 8px;
+            float: left;
+            background-color: #5CDB95;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+        .movie11{
+            width: 24%;
+            height: 33%;
+            margin-left: 8px;
+            float: left;
+            background-color: #5CDB95;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+        .movie12{
+            width: 24%;
+            height: 33%;
+            margin-left: 8px;
+            float: left;
+            background-color: #5CDB95;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+        .movie1 img{
+            width: 97%;
+            height: 95%;
+            padding: 5px;
+            cursor: pointer;
+        }
+        .movie2 img{
+            width: 97%;
+            height: 95%;
+            padding: 5px;
+            cursor: pointer;
+        }
+        .movie3 img{
+            width: 97%;
+            height: 95%;
+            padding: 5px;
+            cursor: pointer;
+        }
+        .movie4 img{
+            width: 97%;
+            height: 95%;
+            padding: 5px;
+            cursor: pointer;
+        }
+        .movie5 img{
+            width: 97%;
+            height: 95%;
+            padding: 5px;
+            cursor: pointer;
+        }
+        .movie6 img{
+            width: 97%;
+            height: 95%;
+            padding: 5px;
+            cursor: pointer;
+        }
+        .movie7 img{
+            width: 97%;
+            height: 95%;
+            padding: 5px;
+            cursor: pointer;
+        }
+        .movie8 img{
+            width: 97%;
+            height: 95%;
+            padding: 5px;
+            cursor: pointer;
+        }
+        .movie9 img{
+            width: 97%;
+            height: 95%;
+            padding: 5px;
+            cursor: pointer;
+        }
+        .movie10 img{
+            width: 97%;
+            height: 95%;
+            padding: 5px;
+            cursor: pointer;
+        }
+        .movie11 img{
+            width: 97%;
+            height: 95%;
+            padding: 5px;
+            cursor: pointer;
+        }
+        .movie12 img{
+            width: 97%;
+            height: 95%;
+            padding: 5px;
+            cursor: pointer;
+        }
+
+        .nav1{
+            width: 101px;
+            height: 49px;
+            float: left;
+            border-bottom: 3px solid #F55725;
+            
+        }
+        .nav2{
+            width: 1499px;
+            float: right;
+            height: 49px;
+            border-bottom: 3px solid #F55725;
+            
+        }
+        .logonav{
+            width: 175px;
+            height: 63px;
+            margin-top: 10px;
+            cursor: pointer;
+            border: 3px solid;
+            border-image:linear-gradient(to bottom,transparent 60%,transparent 0) 2;
+            margin-left: -3px;
+            margin-right: -2.5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="nav1"></div>
+        <div class="logonav"> <a href="mainpage.html"><img src="logoideas/logo öneri3png.png" class="logo"></a>   
+        </div>
+        <div class="nav2"></div>
+    </div>
+    <div class="background">
+        <img src="comedymoviepages/truman/banner.jpeg" class="arka">
+    <div class="movieposter">
+        <div class="info">
+            <div class="moviename">
+                <img src="comedymoviepages/truman/title.png" class="name">
+            </div>
+            <div class="yearetc">
+                <div class="movieinfo">1998   |   1 hrs 43 m   |   Comedy    |</div>
+                <div class="imdb">
+                    <div class="imdblogo"><img src="actionmoviepages/madmax/imdb-logo2.png" class="yellow"></div><div class="puan">8.2</div>
+                </div>
+            </div>
+            <div class="topic"><p>An insurance salesman discovers his whole life is actually a reality TV show.</p></div>
+            <div class="trailer"><a href="https://www.youtube.com/watch?v=dlnmQbPGuls" target="_blank">Watch Trailer</a></div>
+        </div>
+    </div>
+    </div>
+    <div class="others"><p>Other Comedy Movies</p></div>
+    <div class="othermovies">
+        <div class="movie1"><a href="water.html"><img src="comedymoviepages/truman/truman others/water.jpg"></a></div>
+        <div class="movie2"><a href="tropic.html"><img src="comedymoviepages/truman/truman others/tropic.jpg"></a></div>
+        <div class="movie3"><a href="ted.html"><img src="comedymoviepages/truman/truman others/ted.jpg"></a></div>
+        <div class="movie4"><a href="scary.html"><img src="comedymoviepages/truman/truman others/scary.jpg"></a></div>
+        <div class="movie5"><a href="longest.html"><img src="comedymoviepages/truman/truman others/longest.jpg"></a></div>
+        <div class="movie6"><a href="friday.html"><img src="comedymoviepages/truman/truman others/friday.jpg"></a></div>
+        <div class="movie7"><a href="central.html"><img src="comedymoviepages/truman/truman others/central.jpg"></a></div>
+        <div class="movie8"><a href="bruce.html"><img src="comedymoviepages/truman/truman others/bruce.jpg"></a></div>
+        <div class="movie9"><a href="badboys.html"><img src="comedymoviepages/truman/truman others/badboys.jpg"></a></div>
+        <div class="movie10"><a href="22jump.html"><img src="comedymoviepages/truman/truman others/22jump.jpg"></a></div>
+        <div class="movie11"><a href="falil.html"><img src="comedymoviepages/truman/truman others/falil.jpg"></a></div>
+        <div class="movie12"><a href="bucket.html"><img src="comedymoviepages/truman/truman others/bucket.jpeg"></a></div>
+    </div>  
+ </body>
+</html>
