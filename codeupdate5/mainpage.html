@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Movie Picker</title>
+    <link rel="icon" href="logoideas/headlogo4png.png" type="image/icon type">
+    <style>
+    img {
+        width: 100%;
+        margin: auto;
+    }
+    
+    body {
+        background-color:#131314;
+        
+    } 
+
+    .usttaraf{
+        margin:auto;
+        width: 600px;
+        height: 550px;
+    }
+
+
+    .logo{
+        margin: auto;
+        margin-top: 2em;
+        width: 500px;
+        height: 181px; 
+    }
+
+    .slogan{
+        margin: auto;
+        margin-top: 15px;
+        width: 350px;
+        height: 110px;  
+        text-align: center;
+        border: 1px solid #131314;
+    }
+
+    .category{
+        margin: auto;
+        margin-top: -10px;
+        width: 220px;
+        height: 30px;
+    }
+    .shuffle{
+        margin: auto;
+        margin-top: 20px;
+        width: 125px;
+        height: 40px;
+        border-radius: 10px;
+    }
+    
+
+    .categories{
+        margin: auto;
+        margin-top: 60px;
+        width: 500px;
+        height: 50px;
+        text-align: center;
+        line-height: 0px;
+        border: 2px solid #131314;
+    }
+    .actioncategory{
+        margin: auto;
+        margin-top: 20px;
+        width: 1100px;
+        height: 320px;
+    }
+    .action{
+        margin-left: 5px;
+        margin-top: 5px;
+        width: 200px;
+        height: 40px;
+        line-height: 10px;
+    }
+    .actionmovies{
+        margin-left: 5px;
+        margin-top: 5px;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        width: 1080px;
+        height: 255px; 
+        overflow-x: scroll;
+        white-space: nowrap;
+    }
+    .actionmovies::-webkit-scrollbar {
+     height: 7px;
+     
+    }
+
+    .actionmovies::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 0;
+    }
+
+    .actionmovies::-webkit-scrollbar-thumb {   
+    background-color: #3f3c3c;
+    border-radius: 3px;
+    }
+
+    .actionmovies::-webkit-scrollbar-thumb:hover {
+     background-color:#bcaaa0;
+     border-radius: 3px;
+    }
+
+    .actionmovies::-webkit-scrollbar:vertical {
+    display: none;
+    }
+    
+    .comedycategory{
+        margin: auto;
+        margin-top: 40px;
+        width: 1100px;
+        height: 320px;
+    }
+    .comedy{
+        margin-left: 5px;
+        margin-top: 5px;
+        width: 200px;
+        height: 40px;
+        line-height: 10px;
+    }
+    .comedymovies{
+        margin-left: 5px;
+        margin-top: 5px;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        width: 1080px;
+        height: 255px; 
+        overflow: auto;
+        white-space: nowrap;
+    }
+    .comedymovies::-webkit-scrollbar {
+    height: 7px;
+    }
+
+    .comedymovies::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 0;
+    }
+
+    .comedymovies::-webkit-scrollbar-thumb {   
+        background-color: #3f3c3c;
+    border-radius: 3px;
+    }
+
+    .comedymovies::-webkit-scrollbar-thumb:hover {
+        background-color:#bcaaa0;
+     border-radius: 3px;
+    }
+
+    .comedymovies::-webkit-scrollbar:vertical {
+    display: none;
+    }
+    .dramacategory{
+        margin: auto;
+        margin-top: 40px;
+        width: 1100px;
+        height: 320px;
+    }
+    .drama{
+        margin-left: 5px;
+        margin-top: 5px;
+        width: 200px;
+        height: 40px;
+        line-height: 1px;
+    }
+    .dramamovies{
+        margin-left: 5px;
+        margin-top: 5px;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        width: 1080px;
+        height: 255px; 
+        overflow: auto;
+        white-space: nowrap; 
+    }
+    .dramamovies::-webkit-scrollbar {
+        height: 7px;
+    }
+
+    .dramamovies::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 0;
+    }
+
+    .dramamovies::-webkit-scrollbar-thumb {   
+        background-color: #3f3c3c;
+    border-radius: 3px;
+    }
+
+    .dramamovies::-webkit-scrollbar-thumb:hover {
+        background-color:#bcaaa0;
+     border-radius: 3px;
+    }
+
+    .dramamovies::-webkit-scrollbar:vertical {
+    display: none;
+    }
+    .fantasycategory{
+        margin: auto;
+        margin-top: 40px;
+        width: 1100px;
+        height: 320px;
+    }
+    .fantasy{
+        margin-left: 5px;
+        margin-top: 5px;
+        width: 200px;
+        height: 40px;
+        line-height: 1px;
+    }
+    .fantasymovies{
+        margin-left: 5px;
+        margin-top: 5px;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        width: 1080px;
+        height: 255px; 
+        overflow: auto;
+        white-space: nowrap; 
+    }
+    .fantasymovies::-webkit-scrollbar {
+        height: 7px;
+    }
+
+    .fantasymovies::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 0;
+    }
+
+    .fantasymovies::-webkit-scrollbar-thumb {   
+        background-color: #3f3c3c;
+    border-radius: 3px;
+    }
+
+    .fantasymovies::-webkit-scrollbar-thumb:hover {
+        background-color:#bcaaa0;
+     border-radius: 3px;
+    }
+
+    .fantasymovies::-webkit-scrollbar:vertical {
+    display: none;
+    }
+    .horrorcategory{
+        margin: auto;
+        margin-top: 40px;
+        width: 1100px;
+        height: 320px;
+    }
+    .horror{
+        margin-left: 5px;
+        margin-top: 5px;
+        width: 200px;
+        height: 40px;
+        line-height: 1px;
+    }
+    .horrormovies{
+        margin-left: 5px;
+        margin-top: 5px;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        width: 1080px;
+        height: 255px; 
+        overflow: auto;
+        white-space: nowrap; 
+    }
+    .horrormovies::-webkit-scrollbar {
+        height: 7px;
+    }
+
+    .horrormovies::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 0;
+    }
+
+    .horrormovies::-webkit-scrollbar-thumb {   
+        background-color: #3f3c3c;
+    border-radius: 3px;
+    }
+
+    .horrormovies::-webkit-scrollbar-thumb:hover {
+        background-color:#bcaaa0;
+     border-radius: 3px;
+    }
+
+    .horrormovies::-webkit-scrollbar:vertical {
+    display: none;
+    }
+    .mysterycategory{
+        margin: auto;
+        margin-top: 40px;
+        width: 1100px;
+        height: 320px;
+    }
+    .mystery{
+        margin-left: 5px;
+        margin-top: 5px;
+        width: 200px;
+        height: 40px;
+        line-height: 1px;
+    }
+    .mysterymovies{
+        margin-left: 5px;
+        margin-top: 5px;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        width: 1080px;
+        height: 255px; 
+        overflow: auto;
+        white-space: nowrap; 
+    }
+    .mysterymovies::-webkit-scrollbar {
+        height: 7px;
+    }
+
+    .mysterymovies::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 0;
+    }
+
+    .mysterymovies::-webkit-scrollbar-thumb {   
+        background-color: #3f3c3c;
+    border-radius: 3px;
+    }
+
+    .mysterymovies::-webkit-scrollbar-thumb:hover {
+        background-color:#bcaaa0;
+     border-radius: 3px;
+    }
+
+    .mysterymovies::-webkit-scrollbar:vertical {
+    display: none;
+    }
+    .romancecategory{
+        margin: auto;
+        margin-top: 40px;
+        width: 1100px;
+        height: 320px;
+    }
+    .romance{
+        margin-left: 5px;
+        margin-top: 5px;
+        width: 200px;
+        height: 40px;
+        line-height: 1px;
+    }
+    .romancemovies{
+        margin-left: 5px;
+        margin-top: 5px;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        width: 1080px;
+        height: 255px; 
+        overflow: auto;
+        white-space: nowrap; 
+    }
+    .romancemovies::-webkit-scrollbar {
+        height: 7px;
+    }
+
+    .romancemovies::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 0;
+    }
+
+    .romancemovies::-webkit-scrollbar-thumb {   
+        background-color: #3f3c3c;
+    border-radius: 3px;
+    }
+
+    .romancemovies::-webkit-scrollbar-thumb:hover {
+        background-color:#bcaaa0;
+     border-radius: 3px;
+    }
+
+    .romancemovies::-webkit-scrollbar:vertical {
+    display: none;
+    }
+    .thrillercategory{
+        margin: auto;
+        margin-top: 40px;
+        width: 1100px;
+        height: 320px;
+    }
+    .thriller{
+        margin-left: 5px;
+        margin-top: 5px;
+        width: 200px;
+        height: 40px;
+        line-height: 1px;
+    }
+    .thrillermovies{
+        margin-left: 5px;
+        margin-top: 5px;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        width: 1080px;
+        height: 255px; 
+        overflow: auto;
+        white-space: nowrap; 
+    }
+    .thrillermovies::-webkit-scrollbar {
+        height: 7px;
+    }
+
+    .thrillermovies::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 0;
+    }
+
+    .thrillermovies::-webkit-scrollbar-thumb {   
+        background-color: #3f3c3c;
+    border-radius: 3px;
+    }
+
+    .thrillermovies::-webkit-scrollbar-thumb:hover {
+        background-color:#bcaaa0;
+     border-radius: 3px;
+    }
+
+    .thrillermovies::-webkit-scrollbar:vertical {
+    display: none;
+    }
+    .westerncategory{
+        margin: auto;
+        margin-top: 40px;
+        width: 1100px;
+        height: 320px;
+    }
+    .western{
+        margin-left: 5px;
+        margin-top: 5px;
+        width: 200px;
+        height: 40px;
+        line-height: 1px;
+    }
+    .westernmovies{
+        margin-left: 5px;
+        margin-top: 5px;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        width: 1080px;
+        height: 255px; 
+        overflow: auto;
+        white-space: nowrap; 
+    }
+    .westernmovies::-webkit-scrollbar {
+        height: 7px;
+    }
+
+    .westernmovies::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 0;
+    }
+
+    .westernmovies::-webkit-scrollbar-thumb {   
+        background-color: #3f3c3c;
+    border-radius: 3px;
+    }
+
+    .westernmovies::-webkit-scrollbar-thumb:hover {
+        background-color:#bcaaa0;
+     border-radius: 3px;
+    }
+
+    .westernmovies::-webkit-scrollbar:vertical {
+    display: none;
+    }
+
+    h1{
+        color: white;
+        font-size: 40px;
+        font-family: myFirstFont;
+    }
+
+    h5{
+        color:#F55725;
+        font-size: 22px;
+        font-family: myFirstFont;
+        position:relative;
+        top:-30px;
+    }
+
+    h2{
+        color:#bcaaa0;;
+        font-size: 22px;
+        font-family: myFirstFont;
+        position:relative;
+        top: 30px;
+        left: 15px;
+    }
+
+    @font-face {
+        font-family: myFirstFont;
+        src: url(fonts/SansationLight.ttf);
+    }
+    @font-face {
+        font-family: myFirstFont2;
+        src: url(fonts/noto-sans.bold.ttf);
+    }
+
+
+    select{
+        width: 100%;
+        height: 100%;
+        font-family: myFirstFont2;
+        font-size: 15px;
+        text-align: center;
+        border-radius: 7px;
+    }
+
+    .shufflebutton{
+        width: 100%;
+        height: 100%;
+        font-size: 1.2em;
+        font-family: myFirstFont;
+        background-color: #5CDB95;
+        color:#131314;
+        border-radius: 7px;
+        box-shadow: 0 0 1px 0 #000;
+        font-weight:bolder;
+        cursor: pointer;
+    }
+
+    .movie{
+        display: inline-block;
+        width: 150px;
+        max-width: 150px;
+        height: 215px;
+        max-height: 215px;
+        margin-left: 5px;
+        margin-top: 5px;
+        background-color: #5CDB95;
+        padding: 5px;
+        border-radius: 5px;
+    }
+    .movie1{
+        display: inline-block;
+        width: 150px;
+        max-width: 150px;
+        height: 215px;
+        max-height: 215px;
+        margin-left: 5px;
+        margin-top: 5px;
+        background-color: #F55725;
+        padding: 5px;
+        border-radius: 5px;
+    }
+    .movie1 img{
+        cursor: pointer;
+    }
+    .movie img{
+        cursor: pointer;
+    }
+
+    </style>
+    <script>
+        function openRandomMovie() {
+        var categorySelect = document.getElementById("movie-category");
+        var category = categorySelect.options[categorySelect.selectedIndex].value;
+        var movies = {
+            "action": ["action1.html", "action2.html", "action3.html", "action4.html", "action5.html", "action6.html", "action7.html", "action8.html", "action9.html", "action10.html", "action11.html", "action12.html", "action13.html", "action14.html", "action15.html", "action16.html", "action17.html", "action18.html", "action19.html", "action20.html"],
+            "comedy": ["comedy1.html", "comedy2.html", "comedy3.html", "comedy4.html", "comedy5.html", "comedy6.html", "comedy7.html", "comedy8.html", "comedy9.html", "comedy10.html", "comedy11.html", "comedy12.html", "comedy13.html", "comedy14.html", "comedy15.html", "comedy16.html", "comedy17.html", "comedy18.html", "comedy19.html", "comedy20.html"],
+            "drama": ["drama1.html", "drama2.html", "drama3.html", "drama4.html", "drama5.html", "drama6.html", "drama7.html", "drama8.html", "drama9.html", "drama10.html", "drama11.html", "drama12.html", "drama13.html", "drama14.html", "drama15.html", "drama16.html", "drama17.html", "drama18.html", "drama19.html", "drama20.html"],
+            "fantasy": ["fantasy1.html", "fantasy2.html", "fantasy3.html", "fantasy4.html", "fantasy5.html", "fantasy6.html", "fantasy7.html", "fantasy8.html", "fantasy9.html", "fantasy10.html", "fantasy11.html", "fantasy12.html", "fantasy13.html", "fantasy14.html", "fantasy15.html", "fantasy16.html", "fantasy17.html", "fantasy18.html", "fantasy19.html", "fantasy20.html"],
+            "horror": ["horror1.html", "horror2.html", "horror3.html", "horror4.html", "horror5.html", "horror6.html", "horror7.html", "horror8.html", "horror9.html", "horror10.html", "horror11.html", "horror12.html", "horror13.html", "horror14.html", "horror15.html", "horror16.html", "horror17.html", "horror18.html", "horror19.html", "horror20.html"],
+            "mystery": ["mystery1.html", "mystery2.html", "mystery3.html", "mystery4.html", "mystery5.html", "mystery6.html", "mystery7.html", "mystery8.html", "mystery9.html", "mystery10.html", "mystery11.html", "mystery12.html", "mystery13.html", "mystery14.html", "mystery15.html", "mystery16.html", "mystery17.html", "mystery18.html", "mystery19.html", "mystery20.html"],
+            "romance": ["romance1.html", "romance2.html", "romance3.html", "romance4.html", "romance5.html", "romance6.html", "romance7.html", "romance8.html", "romance9.html", "romance10.html", "romance11.html", "romance12.html", "romance13.html", "romance14.html", "romance15.html", "romance16.html", "romance17.html", "romance18.html", "romance19.html", "romance20.html"],
+            "thriller": ["thriller1.html", "thriller2.html", "thriller3.html", "thriller4.html", "thriller5.html", "thriller6.html", "thriller7.html", "thriller8.html", "thriller9.html", "thriller10.html", "thriller11.html", "thriller12.html", "thriller13.html", "thriller14.html", "thriller15.html", "thriller16.html", "thriller17.html", "thriller18.html", "thriller19.html", "thriller20.html"],
+            "western": ["western1.html", "western2.html", "western3.html", "western4.html", "western5.html", "western6.html", "western7.html", "western8.html", "western9.html", "western10.html", "western11.html", "western12.html", "western13.html", "western14.html", "western15.html", "western16.html", "western17.html", "western18.html", "western19.html", "western20.html"],
+        };
+        var randomIndex = Math.floor(Math.random() * movies[category].length);
+        var randomMovie = movies[category][randomIndex];
+        window.open(randomMovie, "_self");
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            var shuffleButton = document.getElementsByClassName("shufflebutton")[0];
+            shuffleButton.addEventListener("click", openRandomMovie);
+        });
+    </script>
+
+</head>
+<body>
+    <div class="usttaraf">
+        <div class="logo">
+            <img src="logoideas/logo öneri3png.png" alt="Logo">
+        </div>
+        <div class="slogan">
+            <h5>DON'T KNOW WHAT TO WATCH ?
+                 JUST CHOOSE A CATEGORY
+                  WE'LL PICK THE MOVIE.
+            </h5>
+        </div>
+        <div class="category">
+            <select id="movie-category">
+                <option disabled selected>Select category:</option>
+                <option value="action">Action</option>
+                <option value="comedy">Comedy</option>
+                <option value="drama">Drama</option>
+                <option value="fantasy">Fantasy</option>
+                <option value="horror">Horror</option>
+                <option value="mystery">Mystery</option>
+                <option value="romance">Romance</option>
+                <option value="thriller">Thriller</option>
+                <option value="western">Western</option>
+              </select>
+         </div>
+        <div class="shuffle">
+                <button class="shufflebutton">SHUFFLE</button></a>
+        </div>
+    </div>
+    <div class="categories">
+        <h1>CATEGORIES</h1>
+    </div>
+
+<div class="actioncategory">
+
+    <div class="action">
+        <h2>ACTION</h2>
+    </div>
+
+    <div class="actionmovies">
+        <div class="movie">
+            <a href="madmax.html">
+            <img src="actionmovies/madmaxfuryroad.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="thedarkknight.html">
+            <img src="actionmovies/thedarkknight.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="johnwick.html">
+            <img src="actionmovies/johnwick.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="gladiator.html">
+            <img src="actionmovies/rsz_gladiator.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="rednotice.html">
+            <img src="actionmovies/rsz_1rednotice.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="300spartians.html">
+            <img src="actionmovies/rsz_300spartians.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="blackpanther.html">
+            <img src="actionmovies/rsz_1blackpanther.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="extraction.html">
+            <img src="actionmovies/rsz_extraction.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="ready-player-one.html">
+            <img src="actionmovies/rsz_readyplayerone.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="6underground.html">
+            <img src="actionmovies/rsz_16underground.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="tenet.html">
+            <img src="actionmovies/rsz_tenet.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="wanted.html">
+            <img src="actionmovies/rsz_1wanted.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="matrix.html">
+            <img src="actionmovies/rsz_1thematrix.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="iamlegend.html">
+            <img src="actionmovies/rsz_iamlegend.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="fallout.html">
+            <img src="actionmovies/rsz_1mifallout.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="topgun.html">
+            <img src="actionmovies/rsz_topgunmaverick.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="deadpool.html">
+            <img src="actionmovies/rsz_1deadpool.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="killbill.html">
+            <img src="actionmovies/rsz_killbill.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="lucy.html">
+            <img src="actionmovies/rsz_1lucy.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="endgame.html">
+            <img src="actionmovies/rsz_endgame.jpg"></a>
+        </div>
+    </div>
+</div>
+
+<div class="comedycategory">
+
+    <div class="comedy">
+        <h2>COMEDY</h2>
+    </div>
+
+    <div class="comedymovies">
+        <div class="movie">
+            <a href="ted.html">
+            <img src="comedymovies/rsz_ted.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="bigmomma.html">
+            <img src="comedymovies/rsz_bigmommashouse.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="longest.html">
+            <img src="comedymovies/rsz_1longestyard.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="water.html">
+            <img src="comedymovies/rsz_waterboy.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="truman.html">
+            <img src="comedymovies/rsz_trumanshow.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="friday.html">
+            <img src="comedymovies/rsz_1friday.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="bucket.html">
+            <img src="comedymovies/rsz_buckeylist.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="falil.html">
+            <img src="comedymovies/rsz_1falilv.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="zombie.html">
+            <img src="comedymovies/rsz_zombieland.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="bruce.html">
+            <img src="comedymovies/rsz_brucealmighty.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="scary.html">
+            <img src="comedymovies/rsz_scarymovie.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="ground.html">
+            <img src="comedymovies/rsz_groundhogday.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="tropic.html">
+            <img src="comedymovies/rsz_tropicthunder.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="american.html">
+            <img src="comedymovies/rsz_1americanpie.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="22jump.html">
+            <img src="comedymovies/rsz_22jumpstreet.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="scrooged.html">
+            <img src="comedymovies/rsz_scrooged.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="nutty.html">
+            <img src="comedymovies/rsz_thenuttyprofessor.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="thegentlemen.html">
+            <img src="comedymovies/rsz_thegentlemen.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="central.html">
+            <img src="comedymovies/rsz_centralintelligence.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="badboys.html">
+            <img src="comedymovies/badboys.jpg"></a>
+        </div>
+    </div>
+</div>
+
+<div class="dramacategory">
+
+    <div class="drama">
+        <h2>DRAMA</h2>
+    </div>
+
+    <div class="dramamovies">
+        <div class="movie">
+            <a href="godfather.html">
+            <img src="dramamovies/rsz_thegodfather.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="solong.html">
+            <img src="dramamovies/rsz_solong.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="joker.html">
+            <img src="dramamovies/rsz_joker.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="boyhood.html">
+            <img src="dramamovies/rsz_boyhood.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="pulp.html">
+            <img src="dramamovies/rsz_pulpfunction.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="pans.html">
+            <img src="dramamovies/rsz_panslabyrinth.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="little.html">
+            <img src="dramamovies/rsz_littlemiss.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="requim.html">
+            <img src="dramamovies/rsz_requim.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="slumdog.html">
+            <img src="dramamovies/rsz_slumdog.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="billy.html">
+            <img src="dramamovies/rsz_1billy.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="infernal.html">
+            <img src="dramamovies/rsz_infernal.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="gilbert.html">
+            <img src="dramamovies/rsz_gilber.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="whiplash.html">
+            <img src="dramamovies/rsz_whiplash.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="thebroken.html">
+            <img src="dramamovies/rsz_thebroken.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="lion.html">
+            <img src="dramamovies/rsz_lion.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="mommy.html">
+            <img src="dramamovies/rsz_mommy.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="taxi.html">
+            <img src="dramamovies/rsz_taxidriver.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="dearest.html">
+            <img src="dramamovies/rsz_dearest.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="whale.html">
+            <img src="dramamovies/rsz_thewhale.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="sorry.html">
+            <img src="dramamovies/rsz_sorry.jpg"></a>
+        </div>
+    </div>
+</div>
+<div class="fantasycategory">
+
+    <div class="fantasy">
+        <h2>FANTASY</h2>
+    </div>
+
+    <div class="fantasymovies">
+        <div class="movie">
+            <a href="princess.html">
+            <img src="fantasymovies/rsz_princess.png"></a>
+        </div>
+        <div class="movie1">
+            <a href="three.html">
+            <img src="fantasymovies/rsz_threethousand.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="jumanji.html">
+            <img src="fantasymovies/rsz_jumanji.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="harry.html">
+            <img src="fantasymovies/rsz_harry.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="puss.html">
+            <img src="fantasymovies/rsz_pussin.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="everything.html">
+            <img src="fantasymovies/rsz_everything.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="encanto.html">
+            <img src="fantasymovies/rsz_encanto.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="mario.html">
+            <img src="fantasymovies/rsz_mariobros.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="dungeons.html">
+            <img src="fantasymovies/rsz_dungeons.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="lotr.html">
+            <img src="fantasymovies/rsz_lotr.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="your.html">
+            <img src="fantasymovies/rsz_yourname.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="matilda.html">
+            <img src="fantasymovies/rsz_matilda.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="secrets.html">
+            <img src="fantasymovies/rsz_fantastic.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="dracula.html">
+            <img src="fantasymovies/rsz_dracula.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="star.html">
+            <img src="fantasymovies/rsz_starwars.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="shazam.html">
+            <img src="fantasymovies/rsz_shazam.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="avatar.html">
+            <img src="fantasymovies/rsz_1avatar2.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="renfield.html">
+            <img src="fantasymovies/rsz_renfield.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="scott.html">
+            <img src="fantasymovies/rsz_scott.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="twilight.html">
+            <img src="fantasymovies/rsz_twilight.jpg"></a>
+        </div>
+    </div>
+</div>
+<div class="horrorcategory">
+
+    <div class="horror">
+        <h2>HORROR</h2>
+    </div>
+
+    <div class="horrormovies">
+        <div class="movie">
+            <a href="quiet.html">
+            <img src="horrormovies/quiet.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="jaws.html">
+            <img src="horrormovies/jaws.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="witch.html">
+            <img src="horrormovies/thewitch.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="thing.html">
+            <img src="horrormovies/thing.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="nightmare.html">
+            <img src="horrormovies/elm.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="scream.html">
+            <img src="horrormovies/scream.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="cabin.html">
+            <img src="horrormovies/cabin.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="host.html">
+            <img src="horrormovies/rsz_host.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="hereditary.html">
+            <img src="horrormovies/hereditary.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="rec.html">
+            <img src="horrormovies/rec.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="getout.html">
+            <img src="horrormovies/getout.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="itfollows.html">
+            <img src="horrormovies/itfollows.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="babadook.html">
+            <img src="horrormovies/babadook.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="paranormal.html">
+            <img src="horrormovies/paranormal.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="descent.html">
+            <img src="horrormovies/descent.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="28days.html">
+            <img src="horrormovies/28days.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="halloween.html">
+            <img src="horrormovies/halloween.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="exorcist.html">
+            <img src="horrormovies/exorcist.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="saw.html">
+            <img src="horrormovies/saw.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="shining.html">
+            <img src="horrormovies/shining.jpg"></a>
+        </div>
+    </div>
+</div>
+<div class="mysterycategory">
+
+    <div class="mystery">
+        <h2>MYSTERY</h2>
+    </div>
+
+    <div class="mysterymovies">
+        <div class="movie">
+            <a href="midsommar.html">
+            <img src="mysterymovies/Midsommar.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="luther.html">
+            <img src="mysterymovies/LutherThe Fallen Sun.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="where.html">
+            <img src="mysterymovies/Where the Crawdads Sing.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="barbarian.html">
+            <img src="mysterymovies/Barbarian.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="seven.html">
+            <img src="mysterymovies/Se7en.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="gone.html">
+            <img src="mysterymovies/Gone Girl.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="shutter.html">
+            <img src="mysterymovies/Shutter Island.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="blade.html">
+            <img src="mysterymovies/Blade Runner 2049.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="missing.html">
+            <img src="mysterymovies/Missing.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="x.html">
+            <img src="mysterymovies/x.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="knock.html">
+            <img src="mysterymovies/Knock at the Cabin.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="serbian.html">
+            <img src="mysterymovies/Srpski film.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="super.html">
+            <img src="mysterymovies/Super 8.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="bourne.html">
+            <img src="mysterymovies/The Bourne Identity.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="nope.html">
+            <img src="mysterymovies/Nope.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="prisoners.html">
+            <img src="mysterymovies/Prisoners.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="prestige.html">
+            <img src="mysterymovies/The Prestige.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="gaslight.html">
+            <img src="mysterymovies/Gaslight.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="infinity.html">
+            <img src="mysterymovies/Infinity Pool.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="iseeyou.html">
+            <img src="mysterymovies/I See You.jpg"></a>
+        </div>
+    </div>
+</div>
+<div class="romancecategory">
+
+    <div class="romance">
+        <h2>ROMANCE</h2>
+    </div>
+
+    <div class="romancemovies">
+        <div class="movie">
+            <a href="crazy.html">
+            <img src="romancemovies/Crazy Stupid Love 2011.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="shape.html">
+            <img src="romancemovies/Shape of Water 2017.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="testament.html">
+            <img src="romancemovies/Testament of Youth 2014.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="elizabeth.html">
+            <img src="romancemovies/Elizabethtown 2005.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="remember.html">
+            <img src="romancemovies/Remember Me 2010.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="rich.html">
+            <img src="romancemovies/Crazy Rich Asians 2018.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="bigsick.html">
+            <img src="romancemovies/The Big Sick 2017.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="silver.html">
+            <img src="romancemovies/Silver Linings Playbook 2012.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="toall.html">
+            <img src="romancemovies/To All the Boys Ive Loved Before 2018.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="notebook.html">
+            <img src="romancemovies/The Notebook 2004.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="murder.html">
+            <img src="romancemovies/murder mystery 2019.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="carol.html">
+            <img src="romancemovies/Carol 2015.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="before.html">
+            <img src="romancemovies/Before Sunrise 1995.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="shakespeare.html">
+            <img src="romancemovies/Shakespeare in Love 1998.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="dirty.html">
+            <img src="romancemovies/Dirty Dancing 1987.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="astar.html">
+            <img src="romancemovies/A Star is Born 2018.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="titanic.html">
+            <img src="romancemovies/Titanic 1998.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="eternal.html">
+            <img src="romancemovies/Eternal Sunshine of the Spotless Mind.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="her.html">
+            <img src="romancemovies/Her 2013.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="basketball.html">
+            <img src="romancemovies/Love & Basketball 2000.jpg"></a>
+        </div>
+    </div>
+</div>
+<div class="thrillercategory">
+
+    <div class="thriller">
+        <h2>THRILLER</h2>
+    </div>
+
+    <div class="thrillermovies">
+        <div class="movie">
+            <a href="fall.html">
+            <img src="thrillermovies/Fall.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="talk.html">
+            <img src="thrillermovies/Talk to Me.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="popes.html">
+            <img src="thrillermovies/The Popes Exorcist.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="identity.html">
+            <img src="thrillermovies/identity.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="smile.html">
+            <img src="thrillermovies/Smile.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="bullet.html">
+            <img src="thrillermovies/Bullet Train.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="pearl.html">
+            <img src="thrillermovies/Pearl.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="last.html">
+            <img src="thrillermovies/The Last Stand.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="recruit.html">
+            <img src="thrillermovies/The Recruit.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="menu.html">
+            <img src="thrillermovies/The Menu.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="call.html">
+            <img src="thrillermovies/The Call.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="covenant.html">
+            <img src="thrillermovies/The Covenant.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="plane.html">
+            <img src="thrillermovies/Plane.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="hunger.html">
+            <img src="thrillermovies/Hunger.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="lucky.html">
+            <img src="thrillermovies/Lucky Number Slevin.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="megann.html">
+            <img src="thrillermovies/Megan.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="sin.html">
+            <img src="thrillermovies/Sin City.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="dontworry.html">
+            <img src="thrillermovies/Dont Worry Darling.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="kill.html">
+            <img src="thrillermovies/Kill Boksoon.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="secret.html">
+            <img src="thrillermovies/Secret Window.jpg"></a>
+        </div>
+    </div>
+</div>
+<div class="westerncategory">
+
+    <div class="western">
+        <h2>WESTERN</h2>
+    </div>
+
+    <div class="westernmovies">
+        <div class="movie">
+            <a href="butch.html">
+            <img src="westernmovies/Butch Cassidy and the Sundance Kid.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="stage.html">
+            <img src="westernmovies/Stagecoach.jpg"></a>
+        </div>
+        <div class="movie">
+            <a href="high.html">
+            <img src="westernmovies/High Noon.jpg"></a>
+        </div>
+        <div class="movie1">
+            <a href="outlaw.html">
+            <img src="westernmovies/The Outlaw Josey Wales.jpg"></a></div>
+        <div class="movie">
+            <a href="winchester.html">
+            <img src="westernmovies/Winchester 73.jpg"></a></div>
+        <div class="movie1">
+            <a href="goodbad.html">
+            <img src="westernmovies/Il buono il brutto il cattivo.jpg"></a></div>
+        <div class="movie">
+            <a href="manwho.html">
+            <img src="westernmovies/The Man Who Shot Liberty Valance.jpg"></a></div>
+        <div class="movie1">
+            <a href="deadman.html">
+            <img src="westernmovies/Dead Man.jpg"></a></div>
+        <div class="movie">
+            <a href="unforgiven.html">
+            <img src="westernmovies/Unforgiven.jpg"></a></div>
+        <div class="movie1">
+            <a href="johnny.html">
+            <img src="westernmovies/Johnny Guitar.jpg"></a></div>
+        <div class="movie">
+            <a href="red.html">
+            <img src="westernmovies/Red River.jpg"></a></div>
+        <div class="movie1">
+            <a href="mccabe.html">
+            <img src="westernmovies/McCabe & Mrs Miller.jpg"></a></div>
+        <div class="movie">
+            <a href="yuma.html">
+            <img src="westernmovies/310 to Yuma.jpg"></a></div>
+        <div class="movie1">
+            <a href="django.html">
+            <img src="westernmovies/Django Unchained.jpg"></a></div>
+        <div class="movie">
+            <a href="searchers.html">
+            <img src="westernmovies/The Searchers.jpg"></a></div>
+        <div class="movie1">
+            <a href="wild.html">
+            <img src="westernmovies/The Wild Bunch.jpg"></a></div>
+        <div class="movie">
+            <a href="pat.html">
+            <img src="westernmovies/Pat Garrett & Billy the Kid.jpg"></a></div>
+        <div class="movie1">
+            <a href="cera.html">
+            <img src="westernmovies/Cera una volta il West.jpg"></a></div>
+        <div class="movie">
+            <a href="true.html">
+            <img src="westernmovies/True Grit.jpg"></a></div>
+        <div class="movie1">
+            <a href="tombstone.html">
+            <img src="westernmovies/Tombstone.jpg"></a></div>
+    </div>
+</div>
+
+    
+
+
+ 
+</body>
+</html>
