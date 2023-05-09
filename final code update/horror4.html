@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Movie Picker</title>
+    <link rel="icon" href="logoideas/headlogo4png.png" type="image/icon type">
+    <style>
+     body {
+        background-color:#131314;
+    } 
+    @font-face {
+        font-family: newfont;
+        src: url(fonts/Ubuntu-Regular.ttf);
+    }
+    div{
+        border: 3px solid transparent;
+    }
+        
+    
+    .mainpart{
+        margin: auto;
+        margin-top: 150px;
+        width: 900px;
+        height: 650px;
+        margin-left: 430px;
+        
+    }
+    
+    .moviename{
+        margin-right: 5px;
+        margin-top: 5px;
+        margin-left: 5px;
+        width: 500px;
+        height: 50px;
+        
+        text-align: left;
+        float: right;
+        white-space: pre;
+    }
+    .moviename p{
+        margin-top: 0px;
+        color: white;
+        font-size: 28px;  
+        font-family: newfont; 
+        font-weight: 600; 
+        margin-left: 10px;
+    }
+
+    .movieposter{
+        margin-top: 10px;
+        margin-left: 50px;
+        width: 320px;
+        height: 455px;
+        border-radius: 5px;
+        float: left;
+        background-color: #5CDB95;
+    }
+
+    .movietopic{
+        margin-top: 5px;
+        margin-right: 5px;
+        float: right;
+        width: 500px;
+        height: 250px;
+        
+    }
+    
+    .topic{
+        margin-top: 0px;
+        margin-left: 5px;
+        width: 450px;
+        height: 230px;
+        display: inline-block;
+    }
+    .topic p{
+        color: rgb(207, 203, 203);
+        font-size: 18px;
+        line-height: 25px;
+        font-family: newfont;
+        font-weight: 500;
+        margin-left: 5px;
+        margin-top: -25px;
+    
+    }
+    .year{
+        margin-top: 0px;
+        margin-left: 3px;
+        width: 290px;
+        height: 35px;
+        
+        float: right;
+    }
+    .imdb{
+        margin-top: 0px;
+        margin-left: 0px;
+        width: 140px;
+        height: 35px;
+        
+        float: right;
+        color: rgb(136, 134, 134);
+        justify-content: left;
+        margin-right: 53px;
+    }
+
+    .trailer{
+        margin:auto;
+        margin-top: 0px;
+        width: 500px;
+        height: 20px;
+        margin-right: 5px;
+        
+        float: right;
+        text-align: left;
+    }
+
+    .shuffle{
+        margin: auto;
+        margin-top: 83px;
+        width: 125px;
+        height: 40px;
+        margin-left: 25px;
+        float: left;
+        
+    }
+
+    @font-face {
+        font-family: myFirstFont;
+        src: url(fonts/SansationLight.ttf);
+    }
+
+    .shufflebutton{
+        width: 100%;
+        height: 100%;
+        font-size: 1.2em;
+        font-family: myFirstFont;
+        background-color: #F55725;
+        color:white;
+        border-radius: 7px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    .poster{
+        width: 97%;
+        height: 98%;
+        padding: 5px;
+        cursor: pointer;
+    }
+    .navbar{
+        width: 100%;
+        display: flex;
+        justify-content: start;
+        position: fixed;
+        top: 0;
+        background-color: #131314;
+        z-index:2;
+        height: 50px;
+    }
+    .nav1{
+        width: 101px;
+        height: 49px;
+        float: left;
+        border-bottom: 3px solid #F55725;
+            
+    }
+    .nav2{
+        width: 1499px;
+        float: right;
+        height: 49px;
+        border-bottom: 3px solid #F55725;
+            
+    }
+    .logonav{
+        width: 175px;
+        height: 63px;
+        margin-top: 10px;
+        cursor: pointer;
+        border: 3px solid;
+        border-image:linear-gradient(to bottom,transparent 60%,transparent 0) 2;
+        margin-left: -3px;
+        margin-right: -2.5px;
+    }
+    .logo{
+        width: 100%;
+        height: 100%;
+    }
+    .year p{
+        color: rgb(136, 134, 134);
+        font-weight: 300;
+        text-align: left;
+        white-space: pre;
+        font-family: newfont;
+        font-size: 17px;
+        margin-left: 5px;
+        margin-top: -20px;
+    }
+    .yearr{
+        float: right;
+        margin-top: -56px;
+        margin-right: 303px;
+    }
+    .yearr p{
+        font-size: 20px;
+        color: rgb(136, 134, 134);
+        font-weight: 400;
+    }
+    .yellow{
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+    .puan{
+        float: left;
+        height: 20px;
+        font-family: newfont;
+        font-weight: 300;
+        margin-top: -22px;
+        margin-left: -55px;
+    }
+    .imdblogo{
+        width: 40px;
+        height: 18px;
+        float: left;
+        margin-top: -21px;
+        margin-left: -95px;
+    }
+    .trailer p{
+        color: rgb(136, 134, 134);
+        font-size: 18px;
+        font-family: newfont;
+        margin-top: 72px;
+        margin-left: 13px;
+    }
+    .trailer a:link { text-decoration: none; }
+    .trailer a:visited { text-decoration: none; }
+    .trailer a:hover { text-decoration: none; }
+    .trailer a:active { text-decoration: none; }
+
+    #loading-screen {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 47%;
+        left: 50%;
+        width: 1400px;
+        height: 620px;
+        background-color: #131314;
+        z-index: 9999;
+        transform: translate(-50%, -50%);
+    }
+
+    .spinner {
+        border: 8px solid #FFFFFF;
+        border-top: 8px solid #5CDB95;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        animation: spin 1s linear infinite;
+        margin-bottom: 10px;
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    </style>
+    <script>
+        setTimeout(function() {
+            document.getElementById("loading-screen").style.display = "block";
+            document.getElementById("loading-screen").style.display = "none";
+        }, 800);
+        function functionToExecute(){
+            var result = Math.floor(Math.random() * 20) + 1;
+            while (result == 4) {
+                result = Math.floor(Math.random() * 20) + 1;
+            }    
+            var pageName = "horror" + result + ".html";
+            window.open(pageName,"_self");
+        }
+    </script>
+</head>
+<body>
+    <div id="loading-screen">
+        <div class="spinner"></div>
+     </div>
+    <div class="navbar">
+        <div class="nav1"></div>
+        <div class="logonav"> <a href="mainpage.html"><img src="logoideas/logo öneri3png.png" class="logo"></a>   
+        </div>
+        <div class="nav2"></div>
+    </div>
+    <div class="mainpart">
+        <div class="moviename"><p>The Thing</p><div class="yearr"><p>(1982)</p></div></div>
+        <div class="movieposter">
+            <a href="thing.html"><img src="horrormovies/thing.jpg" class="poster"></a>
+        </div>
+        <div class="movietopic">
+            <div class="imdb">
+                <div class="imdblogo"><img src="actionmoviepages/madmax/imdb-logo2.png" class="yellow"></div><div class="puan">8.2</div>
+            </div>
+            <div class="year">
+                <p>1 hrs 49 m    |    Horror    |</p>
+            </div>
+            <div class="topic"><p>An American scientific expedition to the frozen wastes of the Antarctic is interrupted by a group of seemingly mad Norwegians pursuing and shooting a dog. The helicopter pursuing the dog explodes, eventually leaving no explanation for the chase. During the night, the dog mutates and attacks other dogs in the cage and members of the team that investigate. The team soon realizes that an alien life-form with the ability to take over other bodies is on the loose and they don't know who may already have been taken over.</p></div>
+        </div>
+        <div class="trailer"><a href="https://www.youtube.com/watch?v=brPRW-_OcdE" target="_blank"><p>Watch Trailer</p></a></div>
+        <div class="shuffle">
+                <button class="shufflebutton" onclick="functionToExecute()">SHUFFLE</button>
+        </div>
+    </div>
+</body>
+</html>
