@@ -630,19 +630,17 @@
 
         
     function redirectToProfile() {
-        // Oturum durumunu kontrol etmek için bir AJAX isteği gönderin
-        // Burada, örnek olarak oturum durumunu kontrol eden bir "checkSession.php" dosyasına istek gönderildiğini varsayıyoruz
-        // Bu dosyayı gerçek senaryonuza uygun şekilde değiştirmeniz gerekebilir
+        
         var xhr = new XMLHttpRequest();
         xhr.open("GET", "checkSession.php", true);
         xhr.onload = function() {
             if (xhr.status === 200) {
                 var response = xhr.responseText;
                 if (response === "authenticated") {
-                    // Kullanıcı oturumu açmışsa "userprofile.html" sayfasına yönlendirin
+                    
                     window.location.href = "userprofile.php";
                 } else {
-                    // Kullanıcı oturumu açmamışsa uyarı mesajı gösterin ve "signin.html" sayfasına yönlendirin
+                 
                     alert("Please sign in first.");
                     window.location.href = "signin.html";
                 }
